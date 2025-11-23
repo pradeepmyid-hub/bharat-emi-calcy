@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bharat EMI Calcy</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for a clean, modern look */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f7;
+            min-height: 100vh;
+        }
+        .app-container {
+            max-width: 900px;
+        }
+        .input-group {
+            transition: all 0.3s ease-in-out;
+        }
+        .input-group:focus-within {
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.4); /* Tailwind green-500 shadow */
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-green': '#10b981', /* Emerald Green */
+                        'secondary-blue': '#3b82f6', /* Blue */
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="p-4 sm:p-8 flex justify-center items-start">
+
+<div class="app-container w-full">
+    <header class="text-center mb-10 p-4 border-b border-gray-200">
+        <h1 class="text-4xl font-extrabold text-gray-900 tracking-tight">
+            Bharat EMI Calcy
+        </h1>
+        <p class="text-xl text-primary-green mt-2 font-semibold">
+            Your Smart Loan Planning Tool
+        </p>
+    </header>
+
+    <main class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- Input Panel (Column 1 & 2 on Large Screens) -->
+        <div class="lg:col-span-2 space-y-8">
+            <!-- Loan Details Card -->
+            <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-secondary-blue mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8a1 1 0 000 2m0 2a1 1 0 000 2m0 2a1 1 0 000 2m-8 2h8a4 4 0 004-4V6a4 4 0 00-4-4H8a4 4 0 00-4 4v12a4 4 0 004 4z" /></svg>
+                    Loan Details
+                </h2>
+
+                <div class="space-y-4">
+                    <!-- Principal Input -->
+                    <label class="block text-gray-700 font-medium">Principal Loan Amount (₹)</label>
+                    <div class="input-group flex items-center border border-gray-300 rounded-lg overflow-hidden bg-white">
+                        <span class="p-3 text-gray-500 bg-gray-50 border-r border-gray-300">₹</span>
+                        <input type="number" id="principal" value="5000000" min="0" step="1000"
+                            class="w-full p-3 text-lg focus:outline-none" 
+                            oninput="updateCalculations()"
+                        >
+                    </div>
+
+                    <!-- Rate and Tenure Group -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <!-- Rate Input -->
+                        <div>
+                            <label class="block text-gray-700 font-medium">Interest Rate (p.a.)</label>
+                            <div class="input-group flex items-center border border-gray-300 rounded-lg overflow-hidden bg-white">
+                                <input type="number" id="rate" value="8.5" min="0.1" step="0.1"
+                                    class="w-full p-3 text-lg focus:outline-none text-right" 
+                                    oninput="updateCalculations()"
+                                >
+                                <span class="p-3 text-gray-500 bg-gray-50 border-l border-gray-300">%</span>
+                            </div>
+                        </div>
+
+                        <!-- Tenure Input -->
+                        <div>
+                            <label class="bloc
